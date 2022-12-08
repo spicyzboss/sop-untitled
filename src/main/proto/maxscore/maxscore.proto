@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.proto.maxscore";
+option java_multiple_files = true;
+
+message MaxScoreRequest {
+  int32 score = 1;
+}
+
+message MaxScoreResponse {
+  int32 highScore = 1;
+}
+
+service MaxScore {
+  rpc FindMaxScore(stream MaxScoreRequest) returns (stream MaxScoreResponse) {};
+}
